@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 
 function AddStudentComponent() {    
-    const [greeting, setGreeting] = useState('Hello from AddStudentComponent!')
-    const handleChange = event => setGreeting(event.target.value)
+    const [name, setName] = useState('Harry Vu')
+    const [email, setEmail] = useState('harryvu@outlook.com')
+    const handleNameChange = event => setName(event.target.value)
+    const handleEmailChange = event => setEmail(event.target.value)
     const handleSubmit = event => {        
-        console.log(greeting);
+        console.log(name);
+        console.log(email);
         event.preventDefault();
     }
 
@@ -12,8 +15,12 @@ function AddStudentComponent() {
         <form onSubmit={handleSubmit}>
             <label>
                 Name: {' '}
-                <input type="text" value={greeting} onChange={handleChange} />
-            </label>{' '}
+                <input type="text" value={name} onChange={handleNameChange} />
+            </label>{' '}<br />
+            <label>
+                Email: {' '}
+                <input type="text" value={email} onChange={handleEmailChange} />
+            </label>{' '}<br />
             <input type="submit" value="Submit" />
         </form>
     )
